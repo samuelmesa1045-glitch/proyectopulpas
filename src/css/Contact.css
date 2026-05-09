@@ -1,0 +1,53 @@
+/* Contenedor de cada columna */
+.contact-column {
+    padding: 30px;
+    border-radius: 15px;
+    background-color: #ffffff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid #f0f0f0;
+    height: 100%; /* Para que todas midan lo mismo */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Efecto al pasar el mouse */
+.contact-column:hover {
+    transform: translateY(-10px); /* Se eleva un poquito */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    border-color: #4CAF50; /* Cambia el borde al verde de tu marca */
+}
+
+/* Estilo para los títulos dentro de las columnas */
+.contact-column h4 {
+    color: #2c3e50;
+    font-weight: 700;
+    margin-bottom: 15px;
+    position: relative;
+}
+
+/* Una pequeña línea decorativa bajo el título */
+.contact-column h4::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 3px;
+    background-color: #4CAF50;
+    margin: 8px auto 0;
+    border-radius: 2px;
+}
+
+/* Estilo para los textos y enlaces */
+.contact-column p, .contact-column a {
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    text-decoration: none;
+}
+
+/* Si usas iconos de Bootstrap o emojis, dales un toque de color */
+.icon-container {
+    font-size: 2.5rem;
+    color: #4CAF50;
+    margin-bottom: 20px;
+}

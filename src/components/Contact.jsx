@@ -1,4 +1,5 @@
 import React from 'react';
+import '../css/Contact.css'
 
 const Contact = () => {
   return (
@@ -8,14 +9,14 @@ const Contact = () => {
         
         <div className="row align-items-start">
           
-          {/* Columna 1: Ubicación Física */}
+        
           <div className="col-md-4">
             <i className="bi bi-geo-alt-fill fs-2 text-success"></i>
             <h4 className="mt-3">Nuestra Sede</h4>
             <p><i class="fa-solid fa-street-view"></i> Calle Falsa 123<br />Medellín, Antioquia</p>
           </div>
 
-          {/* Columna 2: Redes Sociales y Chat */}
+        
           <div className="col-md-4">
             <i className="bi bi-chat-dots-fill fs-2 text-success"></i>
             <h4 className="mt-3">Redes Sociales</h4>
@@ -26,7 +27,7 @@ const Contact = () => {
             </div>
           </div>
 
-          {/* Columna 3: Horarios de Entrega */}
+        
           <div className="col-md-4">
             <i className="bi bi-clock-fill fs-2 text-success"></i>
             <h4 className="mt-3">Atención</h4>
