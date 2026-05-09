@@ -1,0 +1,43 @@
+.footer {
+  background: #111;
+  color: white;
+
+  padding: 70px 80px;
+}
+
+.footer-contenido {
+  display: grid;
+
+  grid-template-columns:
+    repeat(auto-fit, minmax(220px, 1fr));
+
+  gap: 40px;
+}
+
+.footer-col h3,
+.footer-col h4 {
+  margin-bottom: 20px;
+}
+
+.footer-col p,
+.footer-col a {
+  color: #ccc;
+
+  line-height: 1.8;
+}
+
+.footer-col ul {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.barra-azul {
+  background: #1f9b2d;
+
+  color: white;
+
+  text-align: center;
+
+  padding: 20px;
+}

@@ -1,0 +1,171 @@
+.header {
+  width: 100%;
+  height: 85px;
+
+  background: #1f9b2d;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 70px;
+
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo h2 {
+  color: white;
+  font-size: 2rem;
+}
+
+.nav ul {
+  display: flex;
+  gap: 40px;
+}
+
+.nav a {
+  color: white;
+  font-size: 1rem;
+  transition: 0.3s;
+}
+
+.nav a:hover {
+  opacity: 0.8;
+}
+
+.header-info {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.telefono {
+  color: white;
+}
+
+.carrito {
+  position: relative;
+  font-size: 1.6rem;
+  cursor: pointer;
+}
+
+.contador-carrito {
+  position: absolute;
+
+  top: -10px;
+  right: -10px;
+
+  width: 22px;
+  height: 22px;
+
+  background: red;
+  color: white;
+
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 0.8rem;
+}
+
+/* PANEL */
+
+.carrito-panel {
+  position: fixed;
+
+  top: 0;
+  right: -400px;
+
+  width: 350px;
+  height: 100vh;
+
+  background: white;
+
+  box-shadow: -5px 0 15px rgba(0,0,0,0.2);
+
+  transition: 0.4s;
+
+  z-index: 2000;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.carrito-panel.activo {
+  right: 0;
+}
+
+.carrito-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 20px;
+
+  border-bottom: 1px solid #ddd;
+}
+
+.cerrar {
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+.lista-carrito {
+  flex: 1;
+  overflow-y: auto;
+
+  padding: 20px;
+}
+
+.item-carrito {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 15px 0;
+
+  border-bottom: 1px solid #ddd;
+}
+
+.btn-eliminar {
+  border: none;
+
+  background: red;
+  color: white;
+
+  padding: 8px 12px;
+
+  border-radius: 5px;
+}
+
+.carrito-footer {
+  padding: 20px;
+
+  border-top: 1px solid #ddd;
+}
+
+.btn-finalizar {
+  width: 100%;
+
+  margin-top: 15px;
+
+  border: none;
+
+  background: #1f9b2d;
+  color: white;
+
+  padding: 15px;
+
+  border-radius: 10px;
+
+  font-size: 1rem;
+}
+
+.carrito-vacio {
+  text-align: center;
+  margin-top: 50px;
+}

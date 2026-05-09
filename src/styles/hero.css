@@ -1,0 +1,55 @@
+.hero {
+  width: 100%;
+  height: 90vh;
+
+  background:
+    linear-gradient(
+      rgba(0,0,0,0.5),
+      rgba(0,0,0,0.5)
+    ),
+
+    url("https://images.unsplash.com/photo-1502741338009-cac2772e18bc");
+
+  background-size: cover;
+  background-position: center;
+
+  display: flex;
+  align-items: center;
+
+  padding: 0 80px;
+}
+
+.hero-text {
+  max-width: 600px;
+
+  color: white;
+}
+
+.hero-text h1 {
+  font-size: 4rem;
+  margin-bottom: 20px;
+}
+
+.hero-text p {
+  font-size: 1.2rem;
+  line-height: 1.7;
+
+  margin-bottom: 30px;
+}
+
+.btn-hero {
+  display: inline-block;
+
+  background: #1f9b2d;
+  color: white;
+
+  padding: 15px 35px;
+
+  border-radius: 10px;
+
+  transition: 0.3s;
+}
+
+.btn-hero:hover {
+  background: #177722;
+}

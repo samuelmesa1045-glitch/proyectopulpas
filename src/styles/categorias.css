@@ -1,0 +1,46 @@
+.categorias {
+  padding: 80px;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 40px;
+}
+
+.categoria {
+  background: white;
+
+  border-radius: 20px;
+
+  overflow: hidden;
+
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+
+  transition: 0.3s;
+}
+
+.categoria:hover {
+  transform: translateY(-5px);
+}
+
+.categoria img {
+  height: 280px;
+  object-fit: cover;
+}
+
+.categoria h2 {
+  padding: 20px;
+}
+
+.btn-categoria {
+  display: inline-block;
+
+  margin: 0 20px 20px;
+
+  background: #1f9b2d;
+  color: white;
+
+  padding: 12px 25px;
+
+  border-radius: 8px;
+}
