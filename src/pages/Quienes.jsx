@@ -1,13 +1,21 @@
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 function Quienes() {
-  return     <>
+
+  return (
+    <>
       <Navbar />
 
-      <section>
-        <h1> Quienes </h1>
+      <section className="pagina">
+
+        <h1>¿Quiénes somos?</h1>
+
       </section>
+
+      <Footer />
     </>
+  );
 }
 
 export default Quienes;

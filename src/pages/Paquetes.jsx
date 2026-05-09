@@ -1,14 +1,21 @@
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 function Paquetes() {
-  return  <>
+
+  return (
+    <>
       <Navbar />
 
-      <section>
+      <section className="pagina">
+
         <h1>Paquetes</h1>
+
       </section>
+
+      <Footer />
     </>
-   
+  );
 }
 
 export default Paquetes;

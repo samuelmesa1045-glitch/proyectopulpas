@@ -1,4 +1,9 @@
+import { useContext } from "react";
+
+import { CarritoContext } from "../context/CarritoContext";
+
 const productos = [
+
   {
     nombre: "Pulpa de Fresa",
     precio: 6000,
@@ -11,16 +16,17 @@ const productos = [
     precio: 5500,
     imagen:
       "https://imgs.search.brave.com/QaaehKqWmNxX_YkWtx5S4Kj1smRseAGeFSHBKvM9U9Q/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly90NC5mdGNkbi5uZXQvanBnLzAzLzA3LzI1LzMxLzM2MF9GXzMwNzI1MzEyNV9RSlhBWFBSZmFTQzJwaFVXQWNrckp6SUd3azN3VkZzbC5qcGc",
-  },
+  }
+
 ];
 
 function ProductosDestacados() {
 
-  const agregarCarrito = (producto) => {
-    console.log("Producto agregado:", producto);
-  };
+  const { agregarAlCarrito } =
+    useContext(CarritoContext);
 
   return (
+
     <section className="productos">
 
       <h2 className="titulo-productos">
@@ -30,7 +36,11 @@ function ProductosDestacados() {
       <div className="productos-grid">
 
         {productos.map((producto, index) => (
-          <div className="producto" key={index}>
+
+          <div
+            className="producto"
+            key={index}
+          >
 
             <img
               src={producto.imagen}
@@ -43,24 +53,21 @@ function ProductosDestacados() {
               ${producto.precio}
             </p>
 
-            <input
-              type="number"
-              min="1"
-              defaultValue="1"
-              className="cantidad"
-            />
-
             <button
               className="btn-agregar"
-              onClick={() => agregarCarrito(producto)}
+              onClick={() =>
+                agregarAlCarrito(producto, 1)
+              }
             >
               Agregar al carrito
             </button>
 
           </div>
+
         ))}
 
       </div>
+
     </section>
   );
 }

@@ -1,7 +1,11 @@
+import { Link } from "react-router-dom";
+
 function Hero() {
   return (
     <section className="hero">
+
       <div className="hero-text">
+
         <h1>PULPAS 100% NATURALES</h1>
 
         <p>
@@ -10,10 +14,15 @@ function Hero() {
           tus jugos favoritos.
         </p>
 
-        <a href="/productos" className="btn-hero">
+        <Link
+          to="/productos"
+          className="btn-hero"
+        >
           Comprar Ahora
-        </a>
+        </Link>
+
       </div>
+
     </section>
   );
 }
