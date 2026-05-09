@@ -69,3 +69,17 @@
 
   border-radius: 8px;
 }
+.cantidad {
+
+  width: 80px;
+
+  margin-left: 20px;
+  margin-bottom: 15px;
+
+  padding: 10px;
+
+  border-radius: 8px;
+  border: 1px solid #ccc;
+
+  font-size: 1rem;
+}

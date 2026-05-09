@@ -16,10 +16,47 @@ function Navbar() {
   const [abrirCarrito, setAbrirCarrito] =
     useState(false);
 
+  // TOTAL PRODUCTOS
+
   const cantidadTotal = carrito.reduce(
     (acc, item) => acc + item.cantidad,
     0
   );
+
+  // FINALIZAR COMPRA
+
+  const finalizarCompra = () => {
+
+    if (carrito.length === 0) {
+
+      alert("Tu carrito está vacío");
+
+      return;
+    }
+
+    let mensaje =
+      "Hola, quiero realizar el siguiente pedido:%0A%0A";
+
+    carrito.forEach(item => {
+
+      mensaje +=
+        `• ${item.nombre} x ${item.cantidad} = $${
+
+          item.precio * item.cantidad
+
+        }%0A`;
+
+    });
+
+    mensaje += `%0ATotal: $${total}`;
+
+    const telefono = "573001234567";
+
+    const url =
+      `https://wa.me/${telefono}?text=${mensaje}`;
+
+    window.open(url, "_blank");
+  };
 
   return (
     <>
@@ -77,11 +114,13 @@ function Navbar() {
               setAbrirCarrito(!abrirCarrito)
             }
           >
+
             🛒
 
             <span className="contador-carrito">
               {cantidadTotal}
             </span>
+
           </div>
 
         </div>
@@ -162,7 +201,10 @@ function Navbar() {
             Total: ${total}
           </h3>
 
-          <button className="btn-finalizar">
+          <button
+            className="btn-finalizar"
+            onClick={finalizarCompra}
+          >
             Finalizar Compra
           </button>
 
