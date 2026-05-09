@@ -2,10 +2,14 @@ import React from 'react';
 import '../styles/Quienes.css';
 import '../components/Navbar'
 import '../components/Navbar'
+import Navbar from '../components/Navbar';
 
 const Quienes = () => {
   return (
+    <>
+    <Navbar/>
     <section className="quienes-section py-5">
+      
       <div className="container">
         
         {/* Encabezado de la Sección */}
@@ -56,6 +60,7 @@ const Quienes = () => {
         </div>
       </div>
     </section>
+    </>
   );
 };
 
