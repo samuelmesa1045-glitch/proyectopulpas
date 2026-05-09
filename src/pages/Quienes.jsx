@@ -1,7 +1,6 @@
 import React from 'react';
 import '../styles/Quienes.css';
-import '../components/Navbar'
-import '../components/Navbar'
+import Footer from "../components/Footer";
 import Navbar from '../components/Navbar';
 
 const Quienes = () => {
@@ -60,6 +59,7 @@ const Quienes = () => {
         </div>
       </div>
     </section>
+    <Footer />
     </>
   );
 };

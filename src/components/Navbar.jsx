@@ -7,11 +7,13 @@ import "../styles/navbar.css";
 
 function Navbar() {
 
-  const {
-    carrito,
-    eliminarProducto,
-    total
-  } = useContext(CarritoContext);
+    const {
+  carrito,
+  eliminarProducto,
+  aumentarCantidad,
+  disminuirCantidad,
+  total
+} = useContext(CarritoContext);
 
   const [abrirCarrito, setAbrirCarrito] =
     useState(false);
@@ -171,11 +173,35 @@ function Navbar() {
 
                   <h4>{item.nombre}</h4>
 
-                  <p>
-                    {item.cantidad} x $
-                    {item.precio}
-                  </p>
+                 <div className="controles-cantidad">
 
+  <button
+    className="btn-cantidad"
+    onClick={() =>
+      disminuirCantidad(item.nombre)
+    }
+  >
+    -
+  </button>
+
+  <span>
+    {item.cantidad}
+  </span>
+
+  <button
+    className="btn-cantidad"
+    onClick={() =>
+      aumentarCantidad(item.nombre)
+    }
+  >
+    +
+  </button>
+
+</div>
+
+<p>
+  ${item.precio}
+</p>
                 </div>
 
                 <button
