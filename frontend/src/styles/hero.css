@@ -1,0 +1,105 @@
+.hero {
+
+  width: 100%;
+  height: 90vh;
+
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  padding: 0 80px;
+
+  overflow: hidden;
+}
+
+/* CAPA DE IMAGEN */
+
+.hero-bg {
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background-size: cover;
+  background-position: center;
+
+  transition: opacity 0.8s ease-in-out;
+
+  z-index: 0;
+}
+
+.fade-in {
+  opacity: 1;
+}
+
+.fade-out {
+  opacity: 0;
+}
+
+/* OSCURECER IMAGEN */
+
+.hero-overlay {
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background: rgba(0,0,0,0.5);
+
+  z-index: 1;
+}
+
+/* TEXTO */
+
+.hero-text {
+
+  position: relative;
+
+  z-index: 2;
+
+  max-width: 600px;
+
+  color: white;
+}
+
+.hero-text h1 {
+
+  font-size: 4rem;
+
+  margin-bottom: 20px;
+}
+
+.hero-text p {
+
+  font-size: 1.2rem;
+
+  margin-bottom: 30px;
+  line-height: 1.7;
+}
+
+.btn-hero {
+
+  display: inline-block;
+
+  background: #1f9b2d;
+  color: white;
+
+  padding: 15px 35px;
+
+  border-radius: 10px;
+
+  transition: 0.3s;
+}
+
+.btn-hero:hover {
+  background: #177722;
+}
