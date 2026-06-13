@@ -1,30 +1,38 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 
 import { CarritoContext } from "../context/CarritoContext";
 import "../styles/productos.css";
-
-const productos = [
-
-  {
-    nombre: "Pulpa de Fresa",
-    precio: 6000,
-    imagen:
-      "https://imgs.search.brave.com/2LOxsl1uL6KHT0xQswOfIeDHcxS4pfWr0p3_-c-Ceuo/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9zdGF0aWMudmVjdGVlenkuY29tL3N5c3RlbS9yZXNvdXJjZXMvdGh1bWJuYWlscy8wMjgvNjcyLzU0NC9zbWFsbC9zdHJhd2JlcnJ5LXNwbGFzaC1pbnRvLXJlZC1qdWljZS1saXF1aWQtYWktZ2VuZXJhdGVkLXBob3RvLmpwZw",
-  },
-
-  {
-    nombre: "Pulpa de Mango",
-    precio: 5500,
-    imagen:
-      "https://imgs.search.brave.com/QaaehKqWmNxX_YkWtx5S4Kj1smRseAGeFSHBKvM9U9Q/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly90NC5mdGNkbi5uZXQvanBnLzAzLzA3LzI1LzMxLzM2MF9GXzMwNzI1MzEyNV9RSlhBWFBSZmFTQzJwaFVXQWNrckp6SUd3azN3VkZzbC5qcGc",
-  }
-
-];
+import { adaptProduct, getFeaturedProducts } from "../services/api";
 
 function ProductosDestacados() {
 
   const { agregarAlCarrito } =
     useContext(CarritoContext);
+
+  const [productos, setProductos] =
+    useState([]);
+
+  const [cargando, setCargando] =
+    useState(true);
+
+  const [error, setError] =
+    useState("");
+
+  useEffect(() => {
+    const cargarProductos = async () => {
+      try {
+        const productosApi = await getFeaturedProducts();
+
+        setProductos(productosApi.map(adaptProduct));
+      } catch (error) {
+        setError(error.message);
+      } finally {
+        setCargando(false);
+      }
+    };
+
+    cargarProductos();
+  }, []);
 
   return (
 
@@ -34,13 +42,25 @@ function ProductosDestacados() {
         Productos Destacados
       </h2>
 
+      {cargando && (
+        <p>Cargando productos...</p>
+      )}
+
+      {error && (
+        <p>{error}</p>
+      )}
+
+      {!cargando && !error && productos.length === 0 && (
+        <p>No hay productos destacados.</p>
+      )}
+
       <div className="productos-grid">
 
-        {productos.map((producto, index) => (
+        {productos.map((producto) => (
 
           <div
             className="producto"
-            key={index}
+            key={producto.id}
           >
 
             <img
