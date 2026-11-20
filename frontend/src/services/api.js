@@ -43,9 +43,16 @@ export const authRequest = async (path, data) => {
     body: JSON.stringify(data),
   });
   const result = await response.json();
-  if (!response.ok) throw new Error(result.message || "No se pudo completar el acceso.");
+  if (!response.ok) {
+    const error = new Error(result.message || "No se pudo completar el acceso.");
+    error.code = result.code;
+    throw error;
+  }
   return result;
 };
+
+export const verifyEmail = (token) => authRequest("verify-email", { token });
+export const resendVerification = (email) => authRequest("resend-verification", { email });
 
 export const getProducts = async (category) => {
   const query = category ? `?category=${encodeURIComponent(category)}` : "";

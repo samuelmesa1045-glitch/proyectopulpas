@@ -7,7 +7,7 @@ import { useAuth } from "../context/AuthContext";
 import "../styles/navbar.css";
 
 function Navbar() {
-  const { session } = useAuth();
+  const { session, signOut } = useAuth();
   const navigate = useNavigate();
 
     const {
@@ -102,7 +102,10 @@ function Navbar() {
         <div className="header-info">
 
           {session ? (
-            <Link className="telefono" to={session.user.role === "admin" ? "/admin" : "/"}>{session.user.name}</Link>
+            <>
+              <Link className="telefono" to={session.user.role === "admin" ? "/admin" : "/"}>{session.user.name}</Link>
+              {session.user.role === "buyer" && <button type="button" className="nav-signout" onClick={() => { signOut(); navigate("/"); }}>Salir</button>}
+            </>
           ) : (
             <Link className="telefono" to="/acceso">Ingresar</Link>
           )}

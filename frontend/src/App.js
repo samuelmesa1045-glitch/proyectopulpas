@@ -10,6 +10,7 @@ import { AuthProvider } from "./context/AuthContext";
 import Acceso from "./pages/Acceso";
 import Admin from "./pages/Admin";
 import Checkout from "./pages/Checkout";
+import VerificarCorreo from "./pages/VerificarCorreo";
 import { StoreSettingsProvider } from "./context/StoreSettingsContext";
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
         <Route path="/acceso" element={<Acceso />} />
         <Route path="/admin" element={<Admin />} />
         <Route path="/checkout" element={<Checkout />} />
+        <Route path="/verificar-correo" element={<VerificarCorreo />} />
       </Routes>
     </BrowserRouter>
     </CarritoProvider>

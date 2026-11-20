@@ -6,8 +6,9 @@ API Express y MongoDB para autenticación y catálogo de JuliT-REX.
 
 1. Copia `.env.example` como `.env`.
 2. Define una clave larga y aleatoria en `JWT_SECRET`; configura `ADMIN_EMAIL` y `ADMIN_PASSWORD` para crear la cuenta inicial si aún no existe.
-3. Ajusta `MONGODB_URI` y, si es necesario, `CLIENT_URL`.
-4. Ejecuta el servidor:
+3. Para enviar confirmaciones reales, configura `RESEND_API_KEY`, `EMAIL_FROM` con un remitente autorizado y `FRONTEND_URL`. En desarrollo sin credenciales, la API entrega un enlace local de prueba; no envía correos.
+4. Ajusta `MONGODB_URI` y, si es necesario, `CLIENT_URL`.
+5. Ejecuta el servidor:
 
 ```bash
 npm run dev
@@ -25,6 +26,8 @@ npm run dev
 - `DELETE /api/products/:id`: elimina un producto si no está asociado a una promoción (solo admin).
 - `POST /api/products/seed`: agrega los productos iniciales si la base esta vacia (solo admin).
 - `POST /api/auth/register` y `POST /api/auth/login`: cuentas de compradores e inicio de sesion.
+- `POST /api/auth/verify-email`: confirma un token de un solo uso con vigencia de 30 minutos.
+- `POST /api/auth/resend-verification`: reenvía el enlace de confirmación a una cuenta pendiente.
 - `GET /api/categories`: categorías publicadas que tienen productos activos.
 - `GET/POST /api/categories/admin` y `PUT/DELETE /api/categories/:id`: gestión de categorías (solo admin).
 - `GET /api/promotions`: promociones vigentes con precios calculados al consultar el catálogo.

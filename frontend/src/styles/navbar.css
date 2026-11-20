@@ -36,6 +36,7 @@
 .nav ul{justify-content:center;gap:clamp(10px,1.6vw,22px)}
 .nav a{font-size:.94rem;white-space:nowrap}
 .header-info{gap:12px}
+.nav-signout{padding:7px 9px;border:1px solid #b4c58a;background:transparent;color:#426044;font-size:12px;font-weight:700;white-space:nowrap;cursor:pointer;transition:background .2s,color .2s}.nav-signout:hover{background:#e7efca;color:#173f24}
 .telefono{white-space:nowrap}
 .nav{display:flex;align-items:center;gap:10px}
 .nav ul{flex:1}
