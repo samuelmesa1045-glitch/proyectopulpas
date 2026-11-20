@@ -1,11 +1,14 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 
 import { CarritoContext } from "../context/CarritoContext";
+import { useAuth } from "../context/AuthContext";
 
 import "../styles/navbar.css";
 
 function Navbar() {
+  const { session } = useAuth();
+  const navigate = useNavigate();
 
     const {
   carrito,
@@ -36,28 +39,16 @@ function Navbar() {
       return;
     }
 
-    let mensaje =
-      "Hola, quiero realizar el siguiente pedido:%0A%0A";
+    if (!session) {
+      setAbrirCarrito(false);
+      navigate("/acceso?next=checkout");
+      return;
+    }
 
-    carrito.forEach(item => {
+    navigate("/checkout");
+    setAbrirCarrito(false);
+    return;
 
-      mensaje +=
-        `• ${item.nombre} x ${item.cantidad} = $${
-
-          item.precio * item.cantidad
-
-        }%0A`;
-
-    });
-
-    mensaje += `%0ATotal: $${total}`;
-
-    const telefono = "573001234567";
-
-    const url =
-      `https://wa.me/${telefono}?text=${mensaje}`;
-
-    window.open(url, "_blank");
   };
 
   return (
@@ -65,7 +56,9 @@ function Navbar() {
       <header className="header">
 
         <div className="logo">
-          <h2>Pulpas</h2>
+          <Link to="/" aria-label="JuliT-REX, inicio">
+            <img src="/images/brand/logo-tropical.png" alt="JuliT-REX, pulpas 100% naturales" />
+          </Link>
         </div>
 
         <nav className="nav">
@@ -104,26 +97,30 @@ function Navbar() {
 
         </nav>
 
+        <img className="navbar-animation" src="/images/brand/navbar-animation.gif" alt="" aria-hidden="true" />
+
         <div className="header-info">
 
-          <span className="telefono">
-            300 123 4567
-          </span>
+          {session ? (
+            <Link className="telefono" to={session.user.role === "admin" ? "/admin" : "/"}>{session.user.name}</Link>
+          ) : (
+            <Link className="telefono" to="/acceso">Ingresar</Link>
+          )}
 
-          <div
+          <button
+            type="button"
             className="carrito"
+            aria-label={`Abrir carrito, ${cantidadTotal} productos`}
+            aria-expanded={abrirCarrito}
             onClick={() =>
               setAbrirCarrito(!abrirCarrito)
             }
           >
-
             🛒
-
-            <span className="contador-carrito">
+            <span key={cantidadTotal} className="contador-carrito">
               {cantidadTotal}
             </span>
-
-          </div>
+          </button>
 
         </div>
 
@@ -141,14 +138,16 @@ function Navbar() {
 
           <h2>Tu carrito</h2>
 
-          <span
+          <button
+            type="button"
             className="cerrar"
+            aria-label="Cerrar carrito"
             onClick={() =>
               setAbrirCarrito(false)
             }
           >
             ✖
-          </span>
+          </button>
 
         </div>
 
@@ -157,6 +156,7 @@ function Navbar() {
           {carrito.length === 0 ? (
 
             <p className="carrito-vacio">
+              <img src="/images/brand/fruit-loading.png" alt="" />
               Tu carrito está vacío
             </p>
 

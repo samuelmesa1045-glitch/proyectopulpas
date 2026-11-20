@@ -1,0 +1,30 @@
+.access-page,.admin-page{min-height:100vh;background:linear-gradient(135deg,#badb78 0%,#f6d653 55%,#82bd58 100%);color:#233229;font-family:Arial,Helvetica,sans-serif}
+.access-brand{display:inline-flex;align-items:baseline;gap:12px;padding:28px 7vw;color:#176b35;font-size:25px;font-weight:700}
+.access-brand span{color:#66736a;font-size:13px;font-weight:400}
+.access-brand img{width:175px;height:58px;object-fit:contain}.admin-header .access-brand img{width:160px}
+.access-layout{width:min(1050px,88vw);min-height:70vh;margin:2vh auto 7vh;display:grid;grid-template-columns:1fr 440px;align-items:center;gap:80px}
+.access-intro h1,.admin-content h1{font-size:48px;line-height:1.05;margin:16px 0;color:#183d2a}
+.access-intro>p:last-child,.admin-content>p:last-child{max-width:380px;color:#66736a;line-height:1.7}
+.access-eyebrow{color:#b05d32;font-size:12px;font-weight:700;letter-spacing:1.2px}
+.access-form{background:#fff0af;padding:34px;border:1px solid #d9b638;box-shadow:0 15px 50px #263b2930}
+.access-tabs,.customer-type{display:grid;grid-template-columns:1fr 1fr;background:#d8e9ae;padding:4px;margin-bottom:30px}
+.access-tabs button,.customer-type button{border:0;background:transparent;padding:11px 6px;color:#536258}
+.access-tabs button.selected,.customer-type button.selected{background:#fff9df;color:#176b35;box-shadow:0 1px 5px #2033221a}
+.access-form h2{font-size:24px;margin:0 0 24px}.access-form label{display:block;font-size:14px;font-weight:600;margin:16px 0}
+.access-form input,.access-form select{display:block;width:100%;height:44px;margin-top:8px;border:1px solid #c9bd7b;padding:0 12px;background:#fffdf4;font:inherit;outline-color:#238147}
+.access-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}.access-row label{min-width:0}
+.access-submit{width:100%;min-height:46px;border:0;background:#19713a;color:white;font-weight:700;margin-top:8px;padding:12px}.access-submit:disabled{opacity:.65}
+.access-error{padding:10px 12px;background:#fff0eb;color:#9d3e27;font-size:14px}
+.access-switch{text-align:center;margin:18px 0;color:#66736a;font-size:14px}.access-switch button{border:0;background:none;color:#176b35;font-weight:700}
+.access-home{display:block;text-align:center;color:#66736a;font-size:13px;margin-top:22px}
+.admin-header{height:82px;padding:0 7vw;background:#173f24;border-bottom:1px solid #335f35;display:flex;align-items:center;justify-content:space-between}.admin-header .access-brand{padding:0}.admin-header button{background:#f4bd20;border:0;color:#173f24;font-weight:700}
+.admin-header button{background:white;border:1px solid #ccd5cc;padding:10px 14px;color:#394c3e}.admin-content{width:min(1000px,86vw);margin:100px auto}.admin-content h1{font-size:38px}
+.admin-links{display:flex;gap:12px;margin-top:30px}.admin-links a{padding:12px 16px;border:1px solid #d5ded5;color:#176b35;background:white}
+.checkout-page{width:min(720px,90vw);min-height:65vh;margin:70px auto;color:#233229}.checkout-page h1{font-size:36px;color:#183d2a;margin:12px 0 30px}
+.checkout-summary{background:#fff0af;border:1px solid #d9b638;padding:28px;box-shadow:0 10px 30px #173f2418}.checkout-line,.checkout-total{display:flex;justify-content:space-between;gap:18px;padding:14px 0;border-bottom:1px solid #ded18d}
+.checkout-line small{color:#748076}.checkout-total{font-size:19px;border:0;padding:22px 0}.checkout-total strong{color:#176b35}
+.checkout-customer{display:grid;gap:7px;background:#d8e9ae;padding:16px;margin:0 0 18px;color:#3e5140;font-size:14px}.checkout-customer strong{color:#233229}.checkout-page>a{color:#176b35}
+.invoice-request{display:flex;align-items:flex-start;gap:12px;margin:16px 0;padding:14px;border:1px solid #dce5da;cursor:pointer}.invoice-request input{width:18px;height:18px;accent-color:#19713a;flex:0 0 auto;margin-top:2px}.invoice-request span{display:grid;gap:5px}.invoice-request small,.invoice-note{color:#66736a;font-size:13px;line-height:1.5}.invoice-note{margin:0 0 14px;padding:0 14px}
+.checkout-notice{margin:12px 0;padding:12px;background:#fff0af;color:#70411d;font-size:13px;line-height:1.5}
+@media(max-width:760px){.access-layout{grid-template-columns:1fr;gap:30px;margin-top:24px}.access-intro h1{font-size:38px}.access-form{padding:24px}.access-brand{padding:22px 6vw}.admin-content{margin:70px auto}.admin-links{flex-wrap:wrap}}
+@media(max-width:520px){.checkout-page{margin:38px auto}.checkout-summary{padding:20px}.access-row{grid-template-columns:1fr}}

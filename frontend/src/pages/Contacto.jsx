@@ -1,55 +1,42 @@
-import React from 'react';
+import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import '../components/Navbar'
-import '../styles/Contact.css'
-import Navbar from '../components/Navbar';
+import { BRAND_NAME } from "../config/brand";
+import { formatWhatsapp, useStoreSettings } from "../context/StoreSettingsContext";
+import "../styles/Contact.css";
 
-const Contact = () => {
-  return (
-    <>
+function Contacto() {
+  const { settings } = useStoreSettings();
+  const phone = formatWhatsapp(settings.whatsappNumber);
+  return <>
     <Navbar />
-    <section className="contact-section bg-light py-5">
-      <div className="container text-center">
-        <h2 className="mb-5">Contáctanos</h2>
-        
-        <div className="row align-items-start">
-          
-        
-          <div className="col-md-4">
-            <i className="bi bi-geo-alt-fill fs-2 text-success"></i>
-            <h4 className="mt-3">Nuestra Sede</h4>
-            <p><i class="fa-solid fa-street-view"></i> Calle Falsa 123<br />Medellín, Antioquia</p>
-          </div>
-
-        
-          <div className="col-md-4">
-            <i className="bi bi-chat-dots-fill fs-2 text-success"></i>
-            <h4 className="mt-3">Redes Sociales</h4>
-            <div className="d-flex flex-column align-items-center">
-              <a href="#" className="text-decoration-none text-dark mb-1"><i class="fa-brands fa-instagram"></i> Instagram: @PulpasPracticas</a>
-              <a href="#" className="text-decoration-none text-dark mb-1"><i class="fa-brands fa-facebook"></i> Facebook: Pulpas Prácticas </a>
-              <a href="#" className="text-decoration-none text-success fw-bold"><i class="fa-brands fa-whatsapp"></i> WhatsApp: +57 300 000 0000</a>
-            </div>
-          </div>
-
-        
-          <div className="col-md-4">
-            <i className="bi bi-clock-fill fs-2 text-success"></i>
-            <h4 className="mt-3">Atención</h4>
-            <ul className="list-unstyled">
-              <li><strong>Lunes - Viernes:</strong> 8:00 - 17:00</li>
-              <li><strong>Sábados:</strong> 9:00 - 13:00</li>
-              <li><strong>Domingos:</strong> Solo domicilios programados</li>
-            </ul>
-          </div>
-
-        </div>
-      </div>
-    </section>
+    <main className="contact-page">
+      <section className="contact-heading">
+        <p className="access-eyebrow">ESTAMOS PARA AYUDARTE</p>
+        <h1>Hablemos de fruta</h1>
+        <p>¿Tienes una pregunta sobre nuestras pulpas o quieres hacer un pedido? Escríbenos.</p>
+      </section>
+      <section className="contact-grid">
+        <article className="contact-column">
+          <span className="contact-icon" aria-hidden="true">⌖</span>
+          <h2>Desde Santa Rosa</h2>
+          <p>{settings.location}</p>
+        </article>
+        <article className="contact-column">
+          <span className="contact-icon" aria-hidden="true">↗</span>
+          <h2>Pedidos y consultas</h2>
+          <p>Atención directa con {BRAND_NAME}.</p>
+          <a className="contact-cta" href={`https://wa.me/${settings.whatsappNumber}`} target="_blank" rel="noreferrer">WhatsApp {phone}</a>
+        </article>
+        <article className="contact-column">
+          <span className="contact-icon" aria-hidden="true">◷</span>
+          <h2>Compra en línea</h2>
+          <p>Explora el catálogo y envíanos tu pedido desde la tienda.</p>
+          <a className="contact-cta contact-cta-light" href="/productos">Ver productos</a>
+        </article>
+      </section>
+    </main>
     <Footer />
-    </>
-  );
-};
+  </>;
+}
 
-export default Contact;
-
+export default Contacto;

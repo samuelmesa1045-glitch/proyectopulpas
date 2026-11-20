@@ -1,4 +1,5 @@
-import { createContext, useState, useEffect } from "react";
+import { createContext, useCallback, useState, useEffect, useRef } from "react";
+import { adaptProduct, getProducts } from "../services/api";
 
 export const CarritoContext = createContext();
 
@@ -9,8 +10,34 @@ export const CarritoProvider = ({ children }) => {
 
     return guardado ? JSON.parse(guardado) : [];
   });
+  const carritoRef = useRef(carrito);
+
+  const refreshCartFromCatalog = useCallback(async () => {
+    const products = (await getProducts()).map(adaptProduct);
+    const byId = new Map(products.map((product) => [String(product.id), product]));
+    const byName = new Map(products.map((product) => [`${product.categoria}:${product.nombre.toLocaleLowerCase()}`, product]));
+    const unavailable = [];
+
+    const currentCart = carritoRef.current;
+    const updatedCart = currentCart.flatMap((item) => {
+      const name = item.nombre.toLocaleLowerCase();
+      const latest = byId.get(String(item.id))
+        || byName.get(`${item.categoria || "Pulpas"}:${name}`)
+        || products.find((product) => product.nombre.toLocaleLowerCase() === name);
+      if (!latest) {
+        unavailable.push(item.nombre);
+        return [];
+      }
+      return [{ ...item, ...latest, cantidad: item.cantidad }];
+    });
+
+    carritoRef.current = updatedCart;
+    setCarrito(updatedCart);
+    return unavailable;
+  }, []);
 
   useEffect(() => {
+    carritoRef.current = carrito;
     localStorage.setItem(
       "carrito",
       JSON.stringify(carrito)
@@ -114,7 +141,8 @@ const disminuirCantidad = (nombre) => {
   eliminarProducto,
   aumentarCantidad,
   disminuirCantidad,
-  total
+          total,
+          refreshCartFromCatalog
 }}
     >
       {children}

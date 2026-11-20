@@ -2,6 +2,7 @@ import React from 'react';
 import '../styles/Quienes.css';
 import Footer from "../components/Footer";
 import Navbar from '../components/Navbar';
+import { BRAND_NAME, BRAND_TAGLINE } from '../config/brand';
 
 const Quienes = () => {
   return (
@@ -15,9 +16,10 @@ const Quienes = () => {
         <div className="text-center mb-5">
           <h1 className="fw-bold display-5">¿Quiénes Somos?</h1>
           <p className="quienes-descripcion mx-auto mt-3">
-            En <strong>Pulpas Prácticas</strong> nos dedicamos a ofrecer pulpas de fruta 100% naturales, 
-            frescas y listas para preparar tus bebidas favoritas de manera rápida y saludable.
+            En <strong>{BRAND_NAME}</strong> celebramos el sabor de la fruta en cada pulpa, ricas y listas para disfrutar. {BRAND_TAGLINE} para acompañar tus recetas y momentos favoritos.
           </p>
+        <img className="quienes-ilustracion" src="/images/brand/institutional-art.png" alt="Ilustración tropical de JuliT-REX y sus pulpas de fruta" />
+        <img className="quienes-mascota" src="/images/brand/mascot-trex.png" alt="Mascota oficial de JuliT-REX" />
         </div>
 
         {/* Grid de Información con Bootstrap */}
@@ -30,7 +32,7 @@ const Quienes = () => {
                 <i className="fa-solid fa-leaf text-success"></i>
               </div>
               <h3>Calidad Natural</h3>
-              <p>Seleccionamos frutas frescas para garantizar sabor auténtico y nutrición en cada pulpa.</p>
+              <p>Trabajamos para conservar el sabor natural de cada fruta en una pulpa fácil de preparar.</p>
             </div>
           </div>
 
@@ -41,7 +43,7 @@ const Quienes = () => {
                 <i className="fa-solid fa-heart text-danger"></i>
               </div>
               <h3>Compromiso</h3>
-              <p>Trabajamos con pasión para llevar productos saludables a cada hogar y emprendimiento.</p>
+              <p>Queremos que preparar algo rico con fruta sea sencillo para hogares y emprendimientos.</p>
             </div>
           </div>
 
@@ -52,7 +54,7 @@ const Quienes = () => {
                 <i className="fa-solid fa-truck text-primary"></i>
               </div>
               <h3>Distribución</h3>
-              <p>Ofrecemos paquetes y ventas al por mayor para negocios y familias.</p>
+              <p>Encuentra sabores para disfrutar en casa y paquetes para compartir.</p>
             </div>
           </div>
 

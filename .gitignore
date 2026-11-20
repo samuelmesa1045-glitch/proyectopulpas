@@ -13,6 +13,7 @@ coverage/
 build/
 frontend/build/
 backend/build/
+backend/uploads/
 
 .DS_Store
 npm-debug.log*

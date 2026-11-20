@@ -1,14 +1,27 @@
 .productos {
-  padding: 80px;
+  width: min(1320px, 92vw);
+  margin: 0 auto;
+  padding: 54px 0 76px;
+  position: relative;
+  isolation: isolate;
 }
+
+.productos::before { content: ""; position: absolute; z-index: -1; inset: 0 -4.3vw; background: linear-gradient(130deg, #d9edb9, #f7d966 48%, #c8e59f); }
+.productos::after { content: ""; position: absolute; z-index: -1; width: 180px; height: 180px; top: 8px; right: -2vw; background: url("../../public/images/brand/trex-isotipo.png") center / contain no-repeat; opacity: .16; pointer-events: none; }
 
 .titulo-productos {
   text-align: center;
 
-  font-size: 2.5rem;
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
 
-  margin-bottom: 50px;
+  margin-bottom: 30px;
+  color: var(--brand-forest);
+  font-weight: 800;
 }
+
+.catalog-intro{text-align:center;color:var(--brand-muted);margin:-18px auto 34px;line-height:1.7;max-width:640px}
+.catalog-loading{display:flex;align-items:center;gap:12px;color:var(--brand-forest);font-weight:700}.catalog-loading img{width:84px;height:84px;object-fit:cover;border-radius:50%;border:3px solid #f4bd20}
+.catalog-empty{display:flex;align-items:center;gap:12px;color:var(--brand-forest);font-weight:700}.catalog-empty img{width:72px;height:72px;object-fit:cover;border-radius:50%;border:3px solid #f4bd20}
 
 .productos-grid {
   display: grid;
@@ -16,40 +29,48 @@
   grid-template-columns:
     repeat(auto-fit, minmax(250px, 1fr));
 
-  gap: 30px;
+  gap: 22px;
 }
 
 .producto {
-  background: white;
+  background: #fff9df;
 
-  border-radius: 20px;
+  border-radius: 8px;
 
   overflow: hidden;
 
   padding-bottom: 20px;
 
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  border: 1px solid #e1c967;
+  box-shadow: 0 8px 20px rgba(36,64,31,0.15);
 
-  transition: 0.3s;
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
 }
 
 .producto:hover {
-  transform: translateY(-5px);
+  transform: translateY(-4px);
+  border-color: #c5d8b7;
+  box-shadow: 0 12px 26px rgba(36,64,31,0.12);
 }
 
 .producto img {
-  height: 250px;
+  display: block;
+  width: 100%;
+  height: 230px;
   object-fit: cover;
+  object-position: center;
+  background: #f2c849;
 }
 
 .producto h3 {
   padding: 20px 20px 10px;
+  color: var(--brand-forest);
 }
 
 .precio {
   padding: 0 20px;
 
-  color: #1f9b2d;
+  color: var(--brand-leaf);
 
   font-size: 1.2rem;
   font-weight: bold;
@@ -62,13 +83,20 @@
 
   border: none;
 
-  background: #1f9b2d;
+  background: var(--brand-leaf);
   color: white;
 
   padding: 12px 20px;
 
-  border-radius: 8px;
+  border-radius: 4px;
+  font-weight: 700;
+  transition: background .2s ease, transform .2s ease;
 }
+
+.btn-agregar:hover { background: var(--brand-forest); transform: translateY(-1px); }
+.cantidad:focus-visible { outline-color: var(--brand-leaf); }
+
+@media(max-width:600px){.productos{padding:34px 0 48px}.productos-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.producto img{height:160px}.producto h3{padding:14px 12px 8px;font-size:15px}.precio{padding:0 12px;font-size:1rem}.btn-agregar{margin-left:12px;padding:10px 12px;font-size:12px}.cantidad{margin-left:12px;width:64px;padding:8px}}
 .cantidad {
 
   width: 80px;

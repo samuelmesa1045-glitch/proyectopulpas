@@ -1,26 +1,31 @@
 .quienes-section {
-    background-color: #fdfdfd;
+    background: linear-gradient(145deg, #b9db7d 0%, #f5d768 52%, #82bd5b 100%);
+    padding-inline: 4vw;
 }
+
+.quienes-section h1 { color: #173f24; }
+.quienes-ilustracion { width: min(780px, 100%); max-height: 440px; object-fit: contain; margin: 28px auto 42px; border: 5px solid #fff1b7; border-radius: 8px; box-shadow: 0 14px 28px #173f2430; background: #f8e799; }
+.quienes-mascota { width: min(210px, 50vw); height: 190px; object-fit: contain; margin: -18px auto 38px; filter: drop-shadow(0 8px 8px #173f2430); }
 
 .quienes-descripcion {
     max-width: 750px;
     font-size: 1.15rem;
-    color: #5a5a5a;
+    color: #58675d;
     line-height: 1.7;
 }
 
 /* Estilo de las tarjetas individuales */
 .quienes-card {
-    background: #ffffff;
-    border-radius: 20px;
-    border: 1px solid #f0f0f0;
-    transition: all 0.3s ease;
+    background: #ffe88c;
+    border-radius: 8px;
+    border: 1px solid #e3e8d9;
+    transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
 }
 
 .quienes-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08) !important;
-    border-color: #4CAF50; /* Verde de la marca */
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(23, 63, 36, 0.1) !important;
+    border-color: #a9c893;
 }
 
 /* Estilo para los iconos */
@@ -30,11 +35,17 @@
 
 .quienes-card h3 {
     font-size: 1.3rem;
-    color: #333;
+    color: #173f24;
     font-weight: 600;
 }
 
 .quienes-card p {
     font-size: 0.95rem;
-    color: #6c757d;
+    color: #66736a;
+}
+
+@media (max-width: 600px) {
+    .quienes-section { padding-inline: 5vw; }
+    .quienes-descripcion { font-size: 1rem; }
+    .quienes-ilustracion { height: 210px; }
 }

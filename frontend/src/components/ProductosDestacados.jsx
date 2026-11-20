@@ -39,11 +39,11 @@ function ProductosDestacados() {
     <section className="productos">
 
       <h2 className="titulo-productos">
-        Productos Destacados
+        Nuestras pulpas
       </h2>
 
       {cargando && (
-        <p>Cargando productos...</p>
+        <p className="catalog-loading"><img src="/images/brand/fruit-loading.png" alt="" />Cargando productos...</p>
       )}
 
       {error && (
@@ -51,7 +51,7 @@ function ProductosDestacados() {
       )}
 
       {!cargando && !error && productos.length === 0 && (
-        <p>No hay productos destacados.</p>
+        <p className="catalog-empty"><img src="/images/brand/fruit-loading.png" alt="" />No hay productos destacados.</p>
       )}
 
       <div className="productos-grid">
@@ -70,8 +70,11 @@ function ProductosDestacados() {
 
             <h3>{producto.nombre}</h3>
 
-            <p className="precio">
-              ${producto.precio}
+            {producto.descripcion && <p className="producto-descripcion">{producto.descripcion}</p>}
+
+            <p className={`precio${producto.promocion ? " has-promotion" : ""}`}>
+              {producto.promocion && <><span className="precio-original">${Number(producto.precioOriginal).toLocaleString("es-CO")}</span><span className="promotion-label">Oferta</span></>}
+              <strong>${Number(producto.precio).toLocaleString("es-CO")}</strong>
             </p>
 
             <button
